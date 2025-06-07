@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.ImdbSearchTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-06-07T09:13:51" hostname="anastasijazaluninas-MacBook-Pro.local" time="3.312">
-  <properties/>
-  <testcase name="additionalSampleTest" classname="tests.ImdbSearchTest" time="0.014"/>
-  <testcase name="searchTest" classname="tests.ImdbSearchTest" time="3.216"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
