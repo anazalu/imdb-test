@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@Epic("Additional Sample Test for Populating Reports")
 public class UnrelatedAdditionalTest extends BaseTest {
-    @Epic("Additional Test for Demonstration of Reporting")
     @Feature("Home Page")
     @Story("Home Page is displayed")
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.MINOR)
     @Test(testName = "Home", description = "Short sample test", groups = "Full regression")
     public void homePageTest() {
         open("/");
