@@ -14,13 +14,14 @@ import static com.codeborne.selenide.Selenide.title;
 
 public class TitlePage {
     private final SelenideElement topCastHeader = $x("//span[text()=\"Top cast\"]");
-    private final ElementsCollection topCastList = $$x("//a[@data-testid=\"title-cast-item__actor\"]");
+    private final ElementsCollection topCastList = $$x("//div[@data-testid='title-cast-item__avatar']");
 
     @Step("Handle privacy overlay")
     public void handlePrivacyOverlayIfPresent() {
         SelenideElement acceptButton = $("button[data-testid=\"accept-button\"]");
-        if (acceptButton.should(Condition.appear, Duration.ofSeconds(5)).exists()) {
+        if (acceptButton.should(Condition.appear, Duration.ofSeconds(10)).exists()) {
             acceptButton.click();
+            acceptButton.shouldNotBe(Condition.visible, Duration.ofSeconds(10));
         }
     }
 
@@ -48,6 +49,8 @@ public class TitlePage {
 
     @Step("Go to the page of member {memberOrderNumber}")
     public void goToMemberPage(int memberOrderNumber) {
-        topCastList.get(memberOrderNumber - 1).should(Condition.appear, Duration.ofSeconds(5)).click();
+        String xpathMember = "(//div[@data-testid='title-cast-item__avatar'])[" + memberOrderNumber + "]";
+        SelenideElement selectedMember = $x(xpathMember);
+        selectedMember.scrollIntoView(true).shouldBe(Condition.clickable, Duration.ofSeconds(10)).click();
     }
 }
