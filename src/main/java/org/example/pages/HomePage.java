@@ -3,18 +3,20 @@ package org.example.pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import org.openqa.selenium.WebElement;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
 public class HomePage {
-    private final SelenideElement pageTitle = $("#home_img_holder");
+    private final SelenideElement homeIcon = $("#home_img_holder");
     private final SelenideElement searchBar = $("#suggestion-search");
-    private final SelenideElement firstSearchResult = $("#react-autowhatever-navSuggestionSearch--item-1 div.searchResult__constTitle");
+    /*
+    The very first search result (#react-autowhatever-navSuggestionSearch--item-0) is not actually a movie title, it would not satisfy further requirements ("top cast section")
+    Video evidence: https://drive.google.com/file/d/1jTrK0BzyUbm4qSArtMtQuhE3EftZS0NT/view?usp=sharing
+    */
+    private final SelenideElement firstTitle = $("#react-autowhatever-navSuggestionSearch--item-1 div.searchResult__constTitle");
 
     @Step("Check if home page title is visible")
     public boolean homePageIsVisible() {
-        return pageTitle.isDisplayed();
+        return homeIcon.isDisplayed();
     }
 
     @Step("Search for text: {searchText}")
@@ -22,16 +24,13 @@ public class HomePage {
         searchBar.setValue(searchText);
     }
 
-    public String getTextOfFirstResult() {
-        return firstSearchResult.getText();
+    @Step("Retrieve movie title name")
+    public String getTextOfFirstTitle() {
+        return firstTitle.getText();
     }
 
-    public void goToSearchResultPage() {
-        firstSearchResult.click();
+    @Step("Go to movie title page")
+    public void goToTitlePage() {
+        firstTitle.click();
     }
 }
-
-//        $("a[href='/login']").click();
-//        $("#email").setValue("user@example.com");
-//        $("#password").setValue("password").pressEnter();
-//        $(".welcome-message").shouldHave(text("Welcome"));
