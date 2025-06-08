@@ -9,6 +9,7 @@ import org.example.pages.*;
 
 public class BaseTest {
     protected HomePage homePage = new HomePage();
+    protected TitlePage titlePage = new TitlePage();
 
     @BeforeClass
     public void setUp() {
