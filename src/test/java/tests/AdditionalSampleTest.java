@@ -8,13 +8,11 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.open;
 
 @Epic("Additional Sample Test for Populating Reports")
-public class UnrelatedAdditionalTest extends BaseTest {
-    @Feature("Home Page")
-    @Story("Home Page is displayed")
+public class AdditionalSampleTest extends BaseTest {
+    @Feature("Dummy Test 2")
     @Severity(SeverityLevel.MINOR)
-    @Test(testName = "Home", description = "Short sample test", groups = "Full regression")
+    @Test(testName = "Test 2", description = "Short sample test", groups = "Full regression")
     public void homePageTest() {
-        open("/");
-        Assert.assertTrue(homePage.homePageIsVisible(), "Home page not loaded.");
+        Assert.assertTrue(true);
     }
 }

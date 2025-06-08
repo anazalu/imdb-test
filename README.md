@@ -1,8 +1,8 @@
-# IMDB Search Test Framework
-A sample framework to demonstrate testing and reporting options
+# Home Task
+Automated test case (search on IMDB) with generated test report.
 
 ## Tech stack
-Gradle, Selenide, java 17, TestNG, Allure-report
+Gradle, Selenide, Java 17, TestNG, Allure Report
 
 ## Run tests
 
@@ -20,3 +20,6 @@ Gradle, Selenide, java 17, TestNG, Allure-report
 ```
 ./gradlew allureServe
 ```
+
+## Reports
+![img.png](img.png)
